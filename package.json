@@ -1,0 +1,15 @@
+{
+  "name": "vaani-tiny-proto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "4.18.2",
+    "node-cron": "3.0.2",
+    "node-fetch": "^2.7.0",
+    "openai": "^6.9.1"
+  }
+}
