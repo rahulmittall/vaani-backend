@@ -5,8 +5,15 @@ const fs = require('fs');
 const cron = require('node-cron');
 const cors = require('cors');
 
-// LLM adapter (ngrok remote -> local -> OpenAI fallback)
-const { callBrain } = require('./llm_adapter');
+// Defensive adapter require: sets a safe fallback if adapter missing or exported differently
+let callBrain = async () => { return "Maaf — LLM not configured."; };
+try {
+  const adapter = require('./llm_adapter');
+  callBrain = adapter.callBrain || adapter;
+} catch (e) {
+  console.warn("LLM adapter load failed:", e && e.message);
+}
+
 
 const app = express();
 app.use(cors());

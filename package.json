@@ -1,15 +1,18 @@
 {
-  "name": "vaani-tiny-proto",
+  "name": "vaani-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
+    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "express": "4.18.2",
-    "node-cron": "3.0.2",
-    "node-fetch": "^2.7.0",
-    "openai": "^6.9.1"
+    "node-cron": "^3.0.2",
+    "body-parser": "^1.20.2",
+    "openai": "^4.9.0" 
   }
 }
