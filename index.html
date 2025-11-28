@@ -1,12 +1,56 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Vaani Backend</title>
-  </head>
-  <body>
-    <h1>Vaani Backend — OK</h1>
-    <p>This is the backend. Use the <code>/act</code> endpoint for LLM calls.</p>
-  </body>
-</html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Rooh / Vaani — Voice Assistant (Mobile)</title>
 
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#120B34" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <div class="logo">Rooh AI</div>
+      <div class="status" id="status">Ready</div>
+    </header>
+
+    <section class="hero">
+      <div id="blobWrap">
+        <div id="blob" class="blob idle" aria-hidden="true"></div>
+      </div>
+
+      <div class="label">
+        <div id="actionText" class="action-text">Tap and hold to speak</div>
+        <div id="subText" class="sub-text">Or tap to type</div>
+      </div>
+
+      <div class="controls">
+        <button id="typeBtn" class="ghost">Type</button>
+        <button id="micBtn" class="mic" aria-pressed="false" title="Press & hold to speak">
+          <span class="mic-icon">🎤</span>
+        </button>
+      </div>
+
+      <div id="transcript" class="transcript" aria-live="polite"></div>
+    </section>
+
+    <nav class="langs" id="langRow" aria-label="language selector">
+      <!-- language pills populated by JS -->
+    </nav>
+
+    <section class="responses" id="responses" aria-live="polite"></section>
+  </main>
+
+  <template id="respTpl">
+    <div class="respCard">
+      <div class="respText"></div>
+      <div class="respMeta"></div>
+    </div>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
